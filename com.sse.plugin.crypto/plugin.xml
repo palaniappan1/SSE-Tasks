@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="com.sse.plugin.crypto.View"
+            id="com.sse.plugin.crypto.view2"
+            name="View"
+            restorable="true">
+      </view>
+      <view
+            class="com.sse.plugin.crypto.CryptoPlugin"
+            id="com.sse.plugin.crypto.CryptoPlugin"
+            name="CryptoPlugin"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:com.sse.plugin.crypto.CryptoPlugin">
+         <command
+               commandId="com.sse.plugin.crypto.EncryptCommand"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="com.sse.plugin.crypto.EncryptHandler"
+            description="Encrypt the text in the textbox"
+            id="com.sse.plugin.crypto.EncryptCommand"
+            name="Encrypt">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="com.sse.plugin.crypto.EncryptHandler"
+            commandId="com.sse.plugin.crypto.Encrypt">
+      </handler>
+   </extension>
+
+</plugin>
